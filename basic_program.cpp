@@ -32,7 +32,7 @@ void printFibonacci(int n)
     for (int i = 0; i < n; i++)
     {
         cout << a << " ";
-        c = a - b; // iccha kore  
+        c = a - b; // iccha kore break
         a = b;
         b = c;
     }
