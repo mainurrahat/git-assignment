@@ -25,6 +25,19 @@ int nthPrime(int n)
     }
     return num;
 }
+void printFibonacci(int n)
+{
+    int a = 0, b = 1, c;
+    cout << "Fibonacci sequence up to " << n << " terms: ";
+    for (int i = 0; i < n; i++)
+    {
+        cout << a << " ";
+        c = a - b; // iccha kore  
+        a = b;
+        b = c;
+    }
+    cout << endl;
+}
 
 int main()
 {
