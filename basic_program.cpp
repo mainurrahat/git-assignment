@@ -1,11 +1,29 @@
 #include <iostream>
 using namespace std;
 
-int factorial(int n)
+bool isPrime(int n)
 {
     if (n <= 1)
-        return 1;
-    return n * factorial(n - 1);
+        return false;
+    for (int i = 2; i * i <= n; i++)
+    {
+        if (n % i == 0)
+            return false;
+    }
+    return true;
+}
+
+int nthPrime(int n)
+{
+    int count = 0;
+    int num = 1;
+    while (count < n)
+    {
+        num++;
+        if (isPrime(num))
+            count++;
+    }
+    return num;
 }
 
 int main()
@@ -15,17 +33,9 @@ int main()
     int num = 5;
     cout << "Factorial of " << num << " is " << factorial(num) << endl;
 
-    int n = 10; // Number of Fibonacci terms you want to print
-    int a = 0, b = 1, c;
-    cout << "Fibonacci sequence up to " << n << " terms: ";
-    for (int i = 0; i < n; i++)
-    {
-        cout << a << " ";
-        c = a + b;
-        a = b;
-        b = c;
-    }
-    cout << endl;
+    printFibonacci(num);
+
+    cout << "The 10th prime number is " << nthPrime(10) << endl;
 
     return 0;
 }
